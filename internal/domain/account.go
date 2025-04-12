@@ -13,14 +13,14 @@ type Account struct {
 	ID        string
 	Name      string
 	Email     string
-	ApiKey    string
+	APIKey    string
 	Balance   float64
 	mutex     sync.RWMutex // It allows multiple readers to access the data simultaneously but ensures that only one writer can modify the data at a time (using lock). This avoids race conditions.
 	CreatedAt time.Time
 	UpdatedAt time.Time
 }
 
-func generateApiKey() string {
+func generateAPIKey() string {
 	keyBytes := make([]byte, 16)
 	rand.Read(keyBytes)
 	return hex.EncodeToString(keyBytes)
@@ -31,7 +31,7 @@ func NewAccount(name, email string) *Account {
 		ID:        uuid.New().String(),
 		Name:      name,
 		Email:     email,
-		ApiKey:    generateApiKey(),
+		APIKey:    generateAPIKey(),
 		Balance:   0.0,
 		CreatedAt: time.Now(),
 		UpdatedAt: time.Now(),

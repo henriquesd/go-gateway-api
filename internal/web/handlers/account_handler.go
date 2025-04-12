@@ -45,7 +45,7 @@ func (accountHandler *AccountHandler) Get(writer http.ResponseWriter, request *h
 		return
 	}
 
-	output, err := accountHandler.accountService.FindByApiKey(apiKey)
+	output, err := accountHandler.accountService.FindByAPIKey(apiKey)
 	if err != nil {
 		http.Error(writer, err.Error(), http.StatusInternalServerError)
 		return

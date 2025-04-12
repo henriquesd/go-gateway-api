@@ -32,7 +32,7 @@ func (repository *AccountRepository) Save(account *domain.Account) error {
 		account.ID,
 		account.Name,
 		account.Email,
-		account.ApiKey,
+		account.APIKey,
 		account.Balance,
 		account.CreatedAt,
 		account.UpdatedAt,
@@ -43,7 +43,7 @@ func (repository *AccountRepository) Save(account *domain.Account) error {
 	return nil
 }
 
-func (accountRepository *AccountRepository) FindByApiKey(apiKey string) (*domain.Account, error) {
+func (accountRepository *AccountRepository) FindByAPIKey(apiKey string) (*domain.Account, error) {
 	var account domain.Account
 	var createdAt, updatedAt time.Time
 
@@ -55,7 +55,7 @@ func (accountRepository *AccountRepository) FindByApiKey(apiKey string) (*domain
 		&account.ID,
 		&account.Name,
 		&account.Email,
-		&account.ApiKey,
+		&account.APIKey,
 		&account.Balance,
 		&createdAt,
 		&updatedAt,
@@ -72,7 +72,7 @@ func (accountRepository *AccountRepository) FindByApiKey(apiKey string) (*domain
 	return &account, nil
 }
 
-func (accountRepository *AccountRepository) FindById(id string) (*domain.Account, error) {
+func (accountRepository *AccountRepository) FindByID(id string) (*domain.Account, error) {
 	var account domain.Account
 	var createdAt, updatedAt time.Time
 
@@ -84,7 +84,7 @@ func (accountRepository *AccountRepository) FindById(id string) (*domain.Account
 		&account.ID,
 		&account.Name,
 		&account.Email,
-		&account.ApiKey,
+		&account.APIKey,
 		&account.Balance,
 		&createdAt,
 		&updatedAt,
